@@ -23,23 +23,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Keep these behind the workspace so that they are not visible when
-         we go into AllApps -->
-    <include
-        android:id="@+id/dock_divider"
-        layout="@layout/workspace_divider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/button_bar_height"
-        android:layout_gravity="bottom" />
-    <include
-        android:id="@+id/paged_view_indicator"
-        layout="@layout/scroll_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/button_bar_height" />
-
     <!-- The workspace contains 5 screens of cells -->
     <com.android.launcher2.Workspace
         android:id="@+id/workspace"
@@ -62,6 +45,21 @@
         <include android:id="@+id/cell4" layout="@layout/workspace_screen" />
         <include android:id="@+id/cell5" layout="@layout/workspace_screen" />
     </com.android.launcher2.Workspace>
+
+    <include
+        android:id="@+id/dock_divider"
+        layout="@layout/workspace_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/button_bar_height"
+        android:layout_gravity="bottom" />
+    <include
+        android:id="@+id/paged_view_indicator"
+        layout="@layout/scroll_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/button_bar_height" />
 
     <include layout="@layout/hotseat"
         android:id="@+id/hotseat"
