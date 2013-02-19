@@ -42,6 +42,7 @@ import android.graphics.drawable.Drawable;
 import android.os.IBinder;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.Display;
@@ -521,7 +522,7 @@ public class Workspace extends SmoothPagedView
 
             // Hide folder title in the hotseat
             if (child instanceof FolderIcon) {
-                ((FolderIcon) child).setTextVisible(false);
+                ((FolderIcon) child).setTextVisible(true);
             }
 
             if (screen < 0) {
@@ -835,13 +836,12 @@ public class Workspace extends SmoothPagedView
         return getChildOffset(getChildCount() - 1) - getChildOffset(0);
     }
 
+    // let's tweak this just a bit for Glass
     protected void setWallpaperDimension() {
-        Point minDims = new Point();
-        Point maxDims = new Point();
-        mLauncher.getWindowManager().getDefaultDisplay().getCurrentSizeRange(minDims, maxDims);
-
-        final int maxDim = Math.max(maxDims.x, maxDims.y);
-        final int minDim = Math.min(minDims.x, minDims.y);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        mLauncher.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+        final int maxDim = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
+        final int minDim = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
 
         // We need to ensure that there is enough extra space in the wallpaper for the intended
         // parallax effects
@@ -970,9 +970,9 @@ public class Workspace extends SmoothPagedView
 
     class WallpaperOffsetInterpolator {
         float mFinalHorizontalWallpaperOffset = 0.0f;
-        float mFinalVerticalWallpaperOffset = 0.5f;
+        float mFinalVerticalWallpaperOffset = 0.0f;
         float mHorizontalWallpaperOffset = 0.0f;
-        float mVerticalWallpaperOffset = 0.5f;
+        float mVerticalWallpaperOffset = 0.0f;
         long mLastWallpaperOffsetUpdateTime;
         boolean mIsMovingFast;
         boolean mOverrideHorizontalCatchupConstant;
