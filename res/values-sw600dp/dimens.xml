@@ -30,8 +30,8 @@
     <dimen name="search_bar_height">48dp</dimen>
 
 <!-- Hotseat -->
-    <dimen name="hotseat_cell_width">78dp</dimen>
-    <dimen name="hotseat_cell_height">94dp</dimen>
+    <dimen name="hotseat_cell_width">70dp</dimen>
+    <dimen name="hotseat_cell_height">70dp</dimen>
     <dimen name="hotseat_width_gap">-1dp</dimen>
     <dimen name="hotseat_height_gap">-1dp</dimen>
     <dimen name="button_bar_height">94dip</dimen>
